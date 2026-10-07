@@ -1,0 +1,242 @@
+/* Site-wide styles. Plain white academic look, Arial throughout. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: #f9f4e6;
+  color: #222222;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a { color: #476b45; text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header / navigation ---------- */
+.site-header {
+  /* The photo is the header background; a soft cream fade at the top keeps the name and menu readable. */
+  height: 210px;
+  padding: 28px 0 0;
+  background:
+    linear-gradient(rgba(249, 244, 230, 0.55), rgba(249, 244, 230, 0) 65%),
+    url("/images/banner-top.jpg") 50% 62% / cover no-repeat;
+  border-bottom: 1px solid #d9cfb6;
+}
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px 32px;
+}
+.site-name {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #1d2b1c;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+.site-name:hover { text-decoration: none; }
+/* SHIFT-NAV: on wider windows, slide the menu right (up to 160px) so it clears the sun in the photo. */
+nav { display: flex; flex-wrap: wrap; line-height: 1.4; }
+.site-header nav { margin-right: calc(-1 * clamp(0px, (100vw - 900px) * 0.35, 160px)); }
+nav a {
+  margin-left: 22px;
+  font-size: 0.95rem;
+  color: #1d2b1c;
+  padding-bottom: 3px;
+}
+nav a:first-child { margin-left: 0; }
+nav a:hover { color: #476b45; text-decoration: none; }
+nav a[aria-current="page"] {
+  color: #1d2b1c;
+  border-bottom: 2px solid #476b45;
+}
+
+/* ---------- Main content ---------- */
+main { padding: 44px 0 64px; min-height: 60vh; }
+
+/* Page titles: large, dark green-black, with a short accent rule beneath. */
+h1 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #1d2b1c;
+  margin: 0 0 28px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: #476b45;
+  margin-top: 16px;
+}
+/* Section headings: small spaced capitals in the accent color, clearly separate from titles and body text. */
+h2 {
+  font-size: 0.82rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #476b45;
+  margin: 44px 0 16px;
+}
+p { margin: 0 0 16px; }
+
+/* ---------- Home ---------- */
+.intro {
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+}
+.intro img {
+  width: 340px;
+  align-self: stretch;   /* photo runs from the top of the name to the bottom of the bio */
+  height: auto;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+  border: 1px solid #d9cfb6;
+}
+
+/* ---------- Research ---------- */
+.pub {
+  padding: 20px 0;
+  border-top: 1px solid #e2d8c0;
+}
+.pub:first-of-type { border-top: none; padding-top: 0; }
+.pub .title { font-weight: bold; color: #111111; margin: 0 0 2px; }
+.pub .meta { color: #555555; font-size: 0.93rem; margin: 0 0 8px; }
+.pub .abstract { font-size: 0.95rem; margin: 0 0 8px; }
+.pub .pub-link { font-size: 0.93rem; }
+.pub details { margin: 0 0 8px; }
+.pub summary { cursor: pointer; font-size: 0.93rem; color: #476b45; }
+.pub summary:hover { text-decoration: underline; }
+.pub details .abstract { margin: 8px 0 0; }
+.pub .missing { color: #8a7a55; font-style: italic; }
+.plain { margin: 0 0 12px; font-size: 0.97rem; }
+.plain .with { color: #555555; }
+
+/* ---------- CV ---------- */
+.cv-frame {
+  width: 100%;
+  height: 80vh;
+  min-height: 520px;
+  border: 1px solid #d9cfb6;
+}
+.cv-download { font-size: 0.95rem; margin-bottom: 14px; }
+
+/* ---------- Blog ---------- */
+.post {
+  padding: 18px 0;
+  border-top: 1px solid #e2d8c0;
+}
+.post:first-of-type { border-top: none; padding-top: 0; }
+.post .date { color: #666666; font-size: 0.88rem; margin: 0 0 2px; }
+.post .title { font-weight: bold; margin: 0 0 4px; }
+.post .title a { color: #111111; }
+.post .title a:hover { color: #476b45; }
+.post .summary { font-size: 0.95rem; margin: 0; color: #333333; }
+
+/* ---------- More ---------- */
+.embed { width: 100%; border: 0; margin-top: 8px; }
+
+/* ---------- Icon links (streaming services, social, email) ---------- */
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  margin: 16px 0 8px;
+}
+.icon-link { display: inline-flex; width: 30px; height: 30px; color: #476b45; }
+.icon-link:hover, .icon-link:focus-visible { color: #2d4a2c; text-decoration: none; }
+.icon-link:focus-visible { outline: 2px solid #476b45; outline-offset: 4px; }
+.icon-link svg { width: 100%; height: 100%; fill: currentColor; }
+.icon-link svg.stroke { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* On the home page the icon row sits under the photo and bio. */
+.intro + .icons { margin-top: 28px; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid #d9cfb6;
+  padding: 20px 0 36px;
+  color: #777777;
+  font-size: 0.85rem;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+  html { font-size: 16px; }
+  h1 { font-size: 1.9rem; }
+  /* Phones: name and menu sit on plain cream; the photo is a strip underneath so the text never crosses the trees or sun. */
+  .site-header {
+    height: 225px;
+    padding-top: 22px;
+    background:
+      linear-gradient(to bottom, #f9f4e6 0, #f9f4e6 84px, rgba(249, 244, 230, 0) 135px),
+      url("/images/banner-top.jpg") 50% 100% / auto 150px no-repeat #f9f4e6;
+  }
+  .intro { flex-direction: column; gap: 20px; }
+  .intro img { width: 100%; max-width: 300px; align-self: auto; aspect-ratio: 4 / 5; }
+  .site-header .wrap { flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; gap: 6px; }
+  .site-header nav { justify-content: center; }
+  nav a, nav a:first-child { margin: 0 9px; }
+}
+
+/* ---------- Recent reviews (Letterboxd) ---------- */
+h3 {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #1d2b1c;
+  margin: 24px 0 14px;
+}
+.reviews { list-style: none; margin: 0; padding: 0; }
+.review {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-top: 1px solid #e2d8c0;
+}
+.review:first-child { border-top: none; padding-top: 0; }
+.review .poster { flex-shrink: 0; }
+.review img {
+  display: block;
+  width: 90px;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 1px solid #d9cfb6;
+  background: #efe8d4;
+}
+.review p { margin: 0; }
+.film-title { font-weight: bold; }
+.film-title a { color: #111111; }
+.film-title a:hover { color: #476b45; }
+.film-year { font-weight: normal; color: #666666; }
+.film-meta { color: #666666; font-size: 0.85rem; margin: 2px 0 6px !important; }
+.review-text { font-size: 0.95rem; }
+.film-more { margin: 18px 0 0; font-size: 0.9rem; }
+@media (max-width: 640px) {
+  .review img { width: 64px; }
+  .review { gap: 14px; }
+}
+
+/* ---------- Bottom photo banner ---------- */
+.banner { display: block; width: 100%; object-fit: cover; }
+.banner-bottom { height: 90px; object-position: 50% 50%; }
+@media (max-width: 640px) {
+  .banner-bottom { height: 60px; }
+}
