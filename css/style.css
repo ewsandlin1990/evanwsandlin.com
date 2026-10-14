@@ -256,3 +256,7 @@ h3 {
 @media (max-width: 640px) {
   .banner-bottom { height: 60px; }
 }
+
+/* Safety net: no image is ever wider than its column. */
+img { max-width: 100%; height: auto; }
+.earlier-posts { margin-top: 56px; padding-top: 8px; border-top: 1px solid #d9cfb6; }
