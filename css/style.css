@@ -149,6 +149,22 @@ p { margin: 0 0 16px; }
 .post .title a:hover { color: #476b45; }
 .post .summary { font-size: 0.95rem; margin: 0; color: #333333; }
 
+/* Individual blog posts: quotes indented with a green rule, figures full column width. */
+.article-date { color: #666666; font-size: 0.88rem; margin: 0 0 6px; }
+.article p a { text-decoration: underline; text-underline-offset: 2px; }
+.article blockquote {
+  margin: 0 0 20px;
+  padding: 2px 0 2px 20px;
+  border-left: 3px solid #476b45;
+  color: #444444;
+}
+.article blockquote p:last-child { margin-bottom: 0; }
+.article figure { margin: 28px 0; }
+.article figure img { display: block; width: 100%; height: auto; border: 1px solid #e2d8c0; background: #ffffff; }
+.article figcaption { color: #666666; font-size: 0.85rem; margin-top: 6px; }
+.article .back-link { margin-top: 36px; font-size: 0.93rem; }
+.article .back-link a { text-decoration: none; }
+
 /* ---------- More ---------- */
 .embed { width: 100%; border: 0; margin-top: 8px; }
 
